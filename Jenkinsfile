@@ -26,6 +26,19 @@ pipeline {
             }
         }
 
+        stage('Verify Tools') {
+            steps {
+                script {
+                    def cmd = 'java -version && mvn -v'
+                    if (isUnix()) {
+                        sh cmd
+                    } else {
+                        bat cmd
+                    }
+                }
+            }
+        }
+
         stage('Test') {
             steps {
                 script {
