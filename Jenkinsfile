@@ -3,11 +3,6 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'jdk17'
-        maven 'maven3'
-    }
-
     parameters {
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Browser to run tests on')
         booleanParam(name: 'HEADLESS', defaultValue: true, description: 'Run browser headless')
